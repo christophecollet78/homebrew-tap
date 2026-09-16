@@ -2,11 +2,12 @@ class RtkMeter < Formula
   desc "macOS menu bar app showing rtk token-savings stats"
   homepage "https://github.com/christophecollet78/rtk-meter"
   url "https://github.com/christophecollet78/rtk-meter/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "2d8f95597bfe7125d6c464c2a07be04c9f95df60277a017fd5ccbdb8fa630bdb"
+  sha256 "7107fe90f1c6af95ce78669e984a03325bba00884e5a06bca579390fbab82ea5"
   license "MIT"
   head "https://github.com/christophecollet78/rtk-meter.git", branch: "main"
 
-  depends_on xcode: ["14.0", :build]
+  # Only the Command Line Tools are needed, not a full Xcode install, so the
+  # toolchain is checked by build.sh instead of `depends_on xcode:`.
   depends_on macos: :ventura
 
   def install
