@@ -3,9 +3,9 @@ class RtkMeter < Formula
   homepage "https://github.com/christophecollet78/rtk-meter"
   # Prebuilt universal bundle: installing needs no Swift toolchain, and a formula
   # (unlike a cask) is not quarantined, so the ad-hoc signature is enough to launch.
-  url "https://github.com/christophecollet78/rtk-meter/releases/download/v1.0.0/RTK-Meter-1.0.0-universal.zip"
-  sha256 "cbbf40c1930d65ed281604298716bb0ddeb239a376395078ebd039e95990bdb3"
-  version "1.0.0"
+  url "https://github.com/christophecollet78/rtk-meter/releases/download/v1.0.1/RTK-Meter-1.0.1-universal.zip"
+  sha256 "2d68d639c69294e24f4295b8ad6e08d33ab979cc0f0a44ab871373a9d48e06fc"
+  version "1.0.1"
   license "MIT"
   head "https://github.com/christophecollet78/rtk-meter.git", branch: "main"
 
