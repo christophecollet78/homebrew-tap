@@ -7,7 +7,6 @@ class RtkMeter < Formula
   head "https://github.com/christophecollet78/rtk-meter.git", branch: "main"
 
   depends_on xcode: ["14.0", :build]
-  depends_on :macos
   depends_on macos: :ventura
 
   def install
