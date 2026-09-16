@@ -45,10 +45,16 @@ class RtkMeter < Formula
   end
 
   test do
-    # The binary doubles as its own screenshot tool, so the UI can be exercised
-    # headlessly: rendering a PNG proves the bundle launches and draws.
-    system "#{prefix}/RTK Meter.app/Contents/MacOS/RTKMeter", "--render-preview",
-           testpath/"popover.png"
-    assert_predicate testpath/"popover.png", :exist?
+    # Drawing the popover would need the WindowServer, which Homebrew's test
+    # sandbox denies; the app's own CI covers that with --render-preview.
+    binary = prefix/"RTK Meter.app/Contents/MacOS/RTKMeter"
+    assert_predicate binary, :executable?
+
+    archs = shell_output("lipo -archs '#{binary}'")
+    assert_match "arm64", archs
+    assert_match "x86_64", archs
+
+    plist = (prefix/"RTK Meter.app/Contents/Info.plist").read
+    assert_match "LSUIElement", plist
   end
 end
